@@ -19,7 +19,6 @@
             "desiredCapabilities": {
               "browserName": "chrome",
               "chromeOptions": {
-                "w3c": false,
                 "args": ["--headless", "--no-sandbox"]
               }
             }
