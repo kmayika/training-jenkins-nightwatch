@@ -20,5 +20,8 @@
     "chromedriver": "^88.0.0",
     "nightwatch": "^1.5.1",
     "selenium-server-standalone-jar": "^3.141.59"
+  },
+  "devDependencies": {
+    "selenium-server": "^3.141.59"
   }
 }
