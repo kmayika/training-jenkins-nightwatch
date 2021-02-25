@@ -20,7 +20,7 @@
               "browserName": "chrome",
               "chromeOptions": {
                 "w3c": false,
-                "args": ["--headless"]
+                "args": ["--headless", "--no-sandbox"]
               }
             }
         }
