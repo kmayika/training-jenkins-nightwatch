@@ -2,13 +2,10 @@ module.exports = {
     'src_folders': ['tests'],
     selenium: {
         check_process_delay: 5000,
-        start_process: true,
+        start_process: false,
         host: 'localhost',
-        port: 4445,
-        server_path: './node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar',
-        cli_args: {
-          'webdriver.chrome.driver': './node_modules/chromedriver/lib/chromedriver/chromedriver',
-        },
+        port: 4444,
+        default_path_prefix: "/wd/hub"
       },
 
     'test_settings': {
@@ -21,8 +18,9 @@ module.exports = {
             },
             'desiredCapabilities': {
                 'browserName': 'chrome',
-                'chromeOptions': {
-                    'args': ['--headless', '--no-sandbox']
+                'goog:chromeOptions': {
+                    w3c: false,
+                    args: ['--headless', '--no-sandbox']
                 }
             }
         }
