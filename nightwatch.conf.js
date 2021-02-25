@@ -1,12 +1,15 @@
 module.exports = {
     'src_folders': ['tests'],
     'page_objects_path': ['page-objects'],
-
-    'webdriver': {
-        'start_process': true,
-        'server_path': require('chromedriver').path,
-        'port': 9515
-    },
+    selenium: {
+        start_process: true,
+        host: 'localhost',
+        port: 4445,
+        server_path: './node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar',
+        cli_args: {
+          'webdriver.chrome.driver': './node_modules/chromedriver/lib/chromedriver/chromedriver',
+        },
+      },
 
     'test_settings': {
         'default': {
