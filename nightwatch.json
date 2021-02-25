@@ -1,19 +1,18 @@
 {
     "src_folders": ["tests"],
-    "test_settings": {
-        "default": {
-            "selenium": {
-              "check_process_delay": 5000,
-              "start_process": true,
-              "host": "localhost",
-              "port": 4444,
-              "server_path": "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar"
+
+    "selenium": {
+        "start_process": false
+    },
+    "test_settings": { 
+        "default" : {
+            "check_process_delay": 5000,
+            "desiredCapabilities": {
+            "browserName": "chrome",
+            "chromeOptions" : {
+                "args" : ["--no-sandbox"]
             },
-            "screenshots": {
-                "enabled": true,
-                "path": "./tests_output/screenshots",
-                "on_failure": true,
-                "on_error": true
+            "acceptSslCerts": true
             }
         },
         "chrome": {
@@ -24,10 +23,8 @@
               }
             },
             "selenium": {
-              "start_process": true,
-              "cli_args": {
-                "webdriver.chrome.driver": "./node_modules/chromedriver/lib/chromedriver/chromedriver"
-              }
+              "host": "localhost",
+              "port": 4444
             }
         },
         "firefox": {
@@ -37,13 +34,7 @@
                     "moz:firefoxOptions" : {
                         "args" : ["--headless", "--no-sandbox", "--disable-gpu"]
                     }
-            },
-            "selenium": {
-                "start_process": true,
-                "cli_args": {
-                  "webdriver.gecko.driver": "./node_modules/geckodriver/bin/geckodriver"
-                }
-              }
+            }
         }
     }
 }
