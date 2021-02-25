@@ -2,3 +2,4 @@ chromedriver.log
 selenium-server.log
 node_modules
 tests_output
+geckodriver.log

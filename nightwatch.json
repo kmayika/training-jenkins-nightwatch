@@ -2,12 +2,12 @@
     "src_folders": ["tests"],
     "test_settings": {
         "default": {
-            "webdriver" : {
-                "port": 9515,
-                "start_process": true,
-                "server_path": "./node_modules/chromedriver/bin/chromedriver",
-                "cli_args": []
-              },
+            "selenium": {
+              "start_process": true,
+              "host": "localhost",
+              "port": 4444,
+              "server_path": "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar"
+            },
             "screenshots": {
                 "enabled": true,
                 "path": "./tests_output/screenshots",
@@ -21,7 +21,28 @@
               "chromeOptions": {
                 "args": ["--headless", "--no-sandbox"]
               }
+            },
+            "selenium": {
+                "start_process": false,
+              "cli_args": {
+                "webdriver.chrome.driver": "./node_modules/chromedriver/lib/chromedriver/chromedriver"
+              }
             }
+        },
+        "firefox": {
+            "desiredCapabilities" : {
+                "browserName" : "firefox",
+                "acceptInsecureCerts" : true,
+                    "moz:firefoxOptions" : {
+                        "args" : ["--headless", "--no-sandbox", "--disable-gpu"]
+                    }
+            },
+            "selenium": {
+                "start_process": true,
+                "cli_args": {
+                  "webdriver.gecko.driver": "./node_modules/geckodriver/bin/geckodriver"
+                }
+              }
         }
     }
 }
