@@ -3,6 +3,7 @@
     "test_settings": {
         "default": {
             "selenium": {
+              "check_process_delay": 5000,
               "start_process": true,
               "host": "localhost",
               "port": 4444,
@@ -23,7 +24,7 @@
               }
             },
             "selenium": {
-                "start_process": false,
+              "start_process": true,
               "cli_args": {
                 "webdriver.chrome.driver": "./node_modules/chromedriver/lib/chromedriver/chromedriver"
               }
