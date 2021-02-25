@@ -1,0 +1,23 @@
+{
+  "name": "training-jenkins-nightwatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmayika/training-jenkins-nightwatch.git"
+  },
+  "author": "kmayika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmayika/training-jenkins-nightwatch/issues"
+  },
+  "homepage": "https://github.com/kmayika/training-jenkins-nightwatch#readme",
+  "dependencies": {
+    "chromedriver": "^88.0.0",
+    "nightwatch": "^1.5.1"
+  }
+}

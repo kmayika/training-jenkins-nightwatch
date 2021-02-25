@@ -1,0 +1,21 @@
+{
+    "src_folders": ["tests"],
+    "webdriver" : {
+        "start_process": true,
+        "server_path": "node_modules/.bin/chromedriver",
+        "port": 4444
+      },
+    "test_settings": {
+        "default": {
+            "screenshots": {
+                "enabled": true,
+                "path": "./tests_output/screenshots",
+                "on_failure": true,
+                "on_error": true
+            },
+            "desiredCapabilities": {
+                "browserName": "chrome"
+            }
+        }
+    }
+}
