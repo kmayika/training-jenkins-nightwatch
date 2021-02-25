@@ -1,6 +1,7 @@
 module.exports = {
     'src_folders': ['tests'],
     selenium: {
+        check_process_delay: 5000,
         start_process: true,
         host: 'localhost',
         port: 4445,
