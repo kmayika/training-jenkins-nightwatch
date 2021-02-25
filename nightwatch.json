@@ -22,7 +22,8 @@
             "desiredCapabilities": {
               "browserName": "chrome",
               "chromeOptions": {
-                "w3c": false
+                "w3c": false,
+                "args": ["--headless"]
               }
             }
         }
