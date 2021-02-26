@@ -3,9 +3,9 @@ module.exports = {
     "test_workers": false,
     "selenium": {
       "cli_args": {
-        "webdriver.chrome.driver" : "./node_modules/chromedriver/lib/chromedriver/chromedriver",
+        "webdriver.chrome.driver" : require('chromedriver').path,
         "webdriver.gecko.driver" : "node_modules/.bin/geckodriver",
-        "webdriver.edge.driver" : "node_modules/.bin/edgedriver"
+        "webdriver.edge.driver" : "node_modules/.bin/edgedriver.cmd"
     },
     "log_path": "",
     "port": 4460,
@@ -17,7 +17,7 @@ module.exports = {
       "chrome" : {
         "launch_url" : "http://localhost",
         "selenium_port"  : 4460,
-        "selenium_host"  : "172.18.0.2",
+        "selenium_host"  : "localhost",
         "silent": true,
         "screenshots" : {
           "enabled" : false,
