@@ -18,7 +18,7 @@ module.exports = {
         "launch_url" : "http://localhost",
         "selenium_port"  : 4460,
         "selenium_host"  : process.env.SELENIUM_HOST || 'localhost',
-        "silent": true,
+        "silent": false,
         "screenshots" : {
           "enabled" : false,
           "path" : "screenshots/Chrome/"
