@@ -3,7 +3,7 @@ module.exports = {
     "test_workers": false,
     "selenium": {
       "cli_args": {
-        "webdriver.chrome.driver" : "node_modules/.bin/geckodriver",
+        "webdriver.chrome.driver" : "node_modules/.bin/chromedriver",
         "webdriver.gecko.driver" : "node_modules/.bin/geckodriver",
         "webdriver.edge.driver" : "node_modules/.bin/edgedriver"
     },
