@@ -8,7 +8,7 @@ module.exports = {
         "webdriver.edge.driver" : "node_modules/.bin/edgedriver"
     },
     "log_path": "",
-    "port": 4460,
+    "port": 4444,
     server_path: './node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar',
     "start_process": true
   },
