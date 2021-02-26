@@ -1,3 +1,4 @@
+pipeline {
 /* Cloning the git branch*/
 stage('Clone repository') {
         checkout scm
@@ -36,3 +37,6 @@ stage('Teardown docker-compose') {
 // stage('Allure Report') {
 //         allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
 // }
+
+
+}
