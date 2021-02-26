@@ -1,5 +1,6 @@
 # To execute this docker-compose yml file
 # use `docker-compose -f jenkins-docker-compose.yml up --build --abort-on-container-exit`
+#cb91ce587f434a9b99298403c34358b2
 version: "3"
 services:
   jenkins_executor:
