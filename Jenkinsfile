@@ -1,5 +1,5 @@
-pipeline {
-    stages {
+node {
+    // stages {
         /* Cloning the git branch*/
         stage('Clone repository') {
                 checkout scm
@@ -42,4 +42,4 @@ pipeline {
 
     }
 
-}
+// }
