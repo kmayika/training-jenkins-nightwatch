@@ -27,4 +27,4 @@ services:
     image: alpine
     depends_on:
       - selenium-hub
-    command: ["./node_modules/.bin/nightwatch -e chrome"]
+    command: ["HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin npm install","HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin ./node_modules/.bin/nightwatch -e chrome"]
