@@ -3,6 +3,7 @@ module.exports = {
         client
           .url('http://www.takealot.com')
           .waitForElementVisible('body', 1000)
-          .assert.visible('body', '[YES]');
+          .assert.visible('body', '[YES]')
+          .pause(10000);
     }
 };
