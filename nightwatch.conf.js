@@ -1,7 +1,7 @@
 const seleniumServer = require('selenium-server');
 const chromedriver = require('chromedriver');
 const geckodriver = require('geckodriver');
-
+console.log(process.env.HUB_HOST);
 module.exports = {
     "src_folders" : ["tests"],
     "test_workers": false,
@@ -22,7 +22,7 @@ module.exports = {
         "launch_url" : "http://localhost",
         "selenium_port"  : 4444,
         "selenium_host"  : process.env.SELENIUM_HOST || '127.0.0.1',
-        "silent": false,
+        "silent": true,
         "screenshots" : {
           "enabled" : false,
           "path" : "screenshots/Chrome/"
@@ -51,6 +51,29 @@ module.exports = {
         selenium: {
           cli_args: {
             'webdriver.chrome.driver': chromedriver.path
+          }
+        }
+      },
+
+      "firefox" : {
+        "desiredCapabilities": {
+          "browserName": "firefox",
+          "firefoxOptions":{
+            w3c: true,
+            "args": [
+              "disable-web-security",
+              "ignore-certificate-errors",
+              "--test-type",
+              "--disable-gpu",
+              "--headless",
+              "--remote-debugging-port=9222",
+              "--no-sandbox",
+            ]
+          } 
+        },
+        selenium: {
+          cli_args: {
+            'webdriver.gecko.driver': geckodriver.path
           }
         }
       }
