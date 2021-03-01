@@ -34,6 +34,7 @@ pipeline {
         stage ('Start Selenium Grid') {
             steps {
                 sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml up -d")
+                sleep 5
             }
         }
         stage ('Set Selenium Host and Run Tests in All browser') {
@@ -57,7 +58,7 @@ pipeline {
     post {
         always {
             echo "Test Execution is done closing grid"
-            // sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml down")
+            sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml down")
         }
     }
 }
