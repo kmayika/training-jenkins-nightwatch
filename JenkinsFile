@@ -1,6 +1,13 @@
 /* All Declarative pipeleines must be enclosed within a pipeline block*/
 pipeline {
     stages {
+        stage("Git Checkout") {
+            checkout([$class: 'GitSCM',
+                branches: [[name: 'master']],
+                extensions: [],
+                userRemoteConfigs: [[url: 'https://github.com/kmayika/training-jenkins-nightwatch']]])
+
+        }
         stage('Npm install') {
             steps {
                 sh ("HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin npm install")
