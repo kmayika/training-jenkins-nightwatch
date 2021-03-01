@@ -1,6 +1,9 @@
 /* All Declarative pipeleines must be enclosed within a pipeline block*/
 pipeline {
     agent any
+    
+    tools { nodejs "nodejs" }
+    
     stages {
         stage("Git Checkout") {
             steps {
