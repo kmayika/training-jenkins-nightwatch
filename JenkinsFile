@@ -3,6 +3,18 @@ pipeline {
     agent any
     
     tools { nodejs "Node" }
+    parameters {
+        string(name: 'BUILD_NAME', defaultValue: 'Timed Build', description: 'This is the build name')
+        string(name: 'ENVIRONMENT_URL', defaultValue: 'takealot.com', description: 'This is the target environment i.e. master.env')
+        booleanParam(name: 'NOTIFY', defaultValue: false, description: 'Send report to slack')
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'safari', 'edge', 'ie'], description: 'the target browser')
+        booleanParam(name: 'ALL_BROWSER', defaultValue: true, description: 'Run on all browsers')
+
+    }
+
+    triggers { 
+        cron('1 * * * *')
+    }
     
     stages {
         stage("Git Checkout") {
@@ -24,13 +36,18 @@ pipeline {
                 sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml up -d")
             }
         }
-        stage ('Set Selenium Host and Run Tests') {
+        stage ('Set Selenium Host and Run Tests in All browser') {
             environment {
-                SELENIUM_HOST = "10.0.0.104"
+                SELENIUM_HOST = credentials('server-host-ip')
             }
             steps {
-                echo "-- Running on machine: " + "hostname".execute().text
-                sh ("HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin ./node_modules/.bin/nightwatch -e chrome")
+                script {
+                    if (params.ALL_BROWSER == true) {
+                        sh ("HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin ./node_modules/.bin/nightwatch -e chrome,firefox,safari,edge,ie")
+                    } else {
+                        sh ("HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin ./node_modules/.bin/nightwatch -e ${params.BROWSER}")
+                    }
+                }
             }
         }
         // stage ('Close Selenium Grid') {
