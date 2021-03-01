@@ -20,7 +20,7 @@ pipeline {
         }
         stage ('Set Selenium Host and Run Tests') {
             environment {
-                SELENIUM_HOST = 10.0.0.104
+                SELENIUM_HOST = "10.0.0.104"
             }
             steps {
                 sh ("HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin ./node_modules/.bin/nightwatch -e chrome")
