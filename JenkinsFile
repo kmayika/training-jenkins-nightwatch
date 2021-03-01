@@ -1,5 +1,5 @@
 /* All Declarative pipeleines must be enclosed within a pipeline block*/
-pipeline 
+pipeline {
     agent any
     stages {
         stage("Git Checkout") {
