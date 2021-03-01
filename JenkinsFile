@@ -38,7 +38,7 @@ pipeline {
         }
         stage ('Set Selenium Host and Run Tests in All browser') {
             environment {
-                SELENIUM_HOST = env.SELENIUM_HOST
+                SELENIUM_HOST = "${env.SELENIUM_HOST}"
             }
             steps {
                 script {
