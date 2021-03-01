@@ -29,9 +29,7 @@ pipeline {
                 SELENIUM_HOST = "10.0.0.104"
             }
             steps {
-                script {
-                    println "\n\n-- Running on machine: " + "hostname".execute().text
-                }
+                echo "-- Running on machine: " + "hostname".execute().text
                 sh ("HOME=$WORKSPACE PATH=$PATH:$WORKSPACE/.local/bin ./node_modules/.bin/nightwatch -e chrome")
             }
         }
