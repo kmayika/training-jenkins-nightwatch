@@ -8,7 +8,7 @@ pipeline {
         string(name: 'ENVIRONMENT_URL', defaultValue: 'takealot.com', description: 'This is the target environment i.e. master.env')
         booleanParam(name: 'NOTIFY', defaultValue: false, description: 'Send report to slack')
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'safari', 'edge', 'ie'], description: 'the target browser')
-        booleanParam(name: 'ALL_BROWSER', defaultValue: true, description: 'Run on all browsers')
+        booleanParam(name: 'ALL_BROWSER', defaultValue: false, description: 'Run on all browsers')
 
     }
 
@@ -38,7 +38,7 @@ pipeline {
         }
         stage ('Set Selenium Host and Run Tests in All browser') {
             environment {
-                SELENIUM_HOST = credentials('server-host-ip')
+                SELENIUM_HOST = env.SELENIUM_HOST
             }
             steps {
                 script {
