@@ -1,12 +1,15 @@
 /* All Declarative pipeleines must be enclosed within a pipeline block*/
-pipeline {
+pipeline 
+    agent any
     stages {
         stage("Git Checkout") {
-            checkout([$class: 'GitSCM',
-                branches: [[name: 'master']],
-                extensions: [],
-                userRemoteConfigs: [[url: 'https://github.com/kmayika/training-jenkins-nightwatch']]])
+            steps {
+                checkout([$class: 'GitSCM',
+                    branches: [[name: 'master']],
+                    extensions: [],
+                    userRemoteConfigs: [[url: 'https://github.com/kmayika/training-jenkins-nightwatch']]])
 
+            }
         }
         stage('Npm install') {
             steps {
