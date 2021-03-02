@@ -5,13 +5,13 @@ pipeline {
     tools { nodejs "Node" }
     parameters {
         string(name: 'BUILD_NAME', defaultValue: 'Timed Build', description: 'This is the build name')
-        string(name: 'ENVIRONMENT_URL', defaultValue: 'takealot.com', description: 'This is the target environment i.e. master.env')
+        string(name: 'URL', defaultValue: 'master.env', description: 'This is the target environment i.e. master.env')
         string(name: 'GIT_BRANCH', defaultValue: 'master', description: 'The target branch', )
         string(name: 'NW_USERNAME', defaultValue: 'dev+556585@take2.co.za', description: 'The target username', )
         string(name: 'NW_PASSWORD', defaultValue: 'test', description: 'The target password', )
-        string(name: 'TEST_TAG', defaultValue:  "critical", description: 'The target test tag', )
+        choice(name: 'TEST_TAG', choices: ['critical', 'regression'], description: 'The target test tag')
         booleanParam(name: 'NOTIFY', defaultValue: false, description: 'Send report to slack')
-        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'safari', 'edge', 'ie'], description: 'the target browser')
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox - [NOT ENABLED]', 'safari- [NOT ENABLED]', 'edge- [NOT ENABLED]', 'ie- [NOT ENABLED]'], description: 'the target browser')
         choice(name: 'PLATFORM', choices: ['mobi', 'desktop', 'both'], description: 'the target platform')
         booleanParam(name: 'ALL_BROWSER', defaultValue: false, description: 'Run on all browsers')
         booleanParam(name: 'RETRY', defaultValue: true, description: 'Retry test on failure')
@@ -43,7 +43,7 @@ pipeline {
                 sleep 5
             }
         }
-        stage ('Set Selenium Host and Run Tests in All browser') {
+        stage ('Run Tests in Browser') {
             environment {
                 SELENIUM_HOST = "10.0.0.100"
             }
@@ -68,7 +68,7 @@ pipeline {
         always {
             echo "Test Execution is done closing grid"
             sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml down")
-            
+
             echo "Archive Artifacts"
             archiveArtifacts(
                 artifacts: "tests_output/screenshots/**/**/**/*.png,tests_output/*.json,*.txt,report/**/*.xml",

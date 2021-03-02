@@ -20,8 +20,11 @@
     "chromedriver": "^88.0.0",
     "edgedriver": "^4.17134.1",
     "geckodriver": "^1.22.1",
+    "https-post": "^0.1.1",
     "nightwatch": "^1.5.1",
-    "selenium-server-standalone-jar": "^3.141.59"
+    "saucelabs": "^4.6.6",
+    "selenium-server-standalone-jar": "^3.141.59",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "selenium-server": "^3.141.59"
