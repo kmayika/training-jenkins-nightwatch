@@ -55,7 +55,7 @@ pipeline {
     post {
         always {
             echo "Test Execution is done closing grid"
-            sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml down")
+            // sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml down")
         }
     }
 }
