@@ -12,6 +12,7 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=5
   firefox:
     image: selenium/node-firefox-debug
     depends_on:
@@ -19,3 +20,4 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=5

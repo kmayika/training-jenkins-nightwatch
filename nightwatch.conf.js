@@ -54,22 +54,21 @@ module.exports = {
           }
         }
       },
-
       "firefox" : {
         "desiredCapabilities": {
           "browserName": "firefox",
-          "firefoxOptions":{
-            w3c: true,
-            "args": [
-              "disable-web-security",
-              "ignore-certificate-errors",
-              "--test-type",
-              "--disable-gpu",
-              "--headless",
-              "--remote-debugging-port=9222",
-              "--no-sandbox",
-            ]
-          } 
+          "acceptSslCerts": true,
+          "javascriptEnabled": true,
+          firefoxOptions:{
+              w3c: false,
+              "args": [
+                "--disable-gpu",
+                "--headless",
+                "--remote-debugging-port=9222",
+                "--no-sandbox"
+              ]
+          }, 
+          acceptInsecureCerts: true,
         },
         selenium: {
           cli_args: {
