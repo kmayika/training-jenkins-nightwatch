@@ -39,7 +39,7 @@ pipeline {
         }
         stage ('Set Selenium Host and Run Tests in All browser') {
             environment {
-                SELENIUM_HOST = "10.0.0.104"
+                SELENIUM_HOST = "10.0.0.100"
             }
             steps {
                 script {
