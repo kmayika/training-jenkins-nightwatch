@@ -1,5 +1,5 @@
 module.exports = {
-    '@tags': ['desktop', 'critical'],
+    '@tags': ['mobi', 'critical'],
     "This is a nightwatch test": (client) => {
         client
           .url(`http://www.${process.env.ENVIRONMENT_URL || 'takealot.com'}`)
