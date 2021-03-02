@@ -68,6 +68,12 @@ pipeline {
         always {
             echo "Test Execution is done closing grid"
             sh ("sudo docker-compose -f selenium/selenium-docker-compose.yml down")
+            
+            echo "Archive Artifacts"
+            archiveArtifacts(
+                artifacts: "tests_output/screenshots/**/**/**/*.png,tests_output/*.json,*.txt,report/**/*.xml",
+                fingerprint: true
+            )
         }
     }
 }
